@@ -1,8 +1,8 @@
 This file contains a description of the analysis performed on UCI’s
 “Human Acvitity Recognition Using Smartphones” Dataset
 
-1 Merge the training and test sets to create one data set
-=========================================================
+1: Merge the training and test sets to create one data set
+==========================================================
 
 Data is first downloaded and unzipped to a local directory. The *X\_*,
 *subject\_*, and *y\_* files, representing the *output data*, *subjeect
@@ -16,8 +16,8 @@ Files are read using read.csv:
 `subtest <- read.csv("UCI HAR Dataset/test/subject_test.txt", header = FALSE, sep = "")`
 And merged with: `submerge <- rbind(subtest, subtrain)`
 
-2 Extract only the measurements on the mean and SD for each measurement
-=======================================================================
+2: Extract only the measurements on the mean and SD for each measurement
+========================================================================
 
 Within the provided **features.txt** file, `grepl` is used to find
 measurements containing “mean()” or “sd()”. The logical vector from this
@@ -25,8 +25,8 @@ call is stored in `keepfeatures` and used to extract the appropriate
 columns from `datamerge` with the subsetting call
 `datamerge <- datamerge[, keepfeatures]`
 
-3 Use descriptive activity names to name the activities in the data set
-=======================================================================
+3: Use descriptive activity names to name the activities in the data set
+========================================================================
 
 Activity names are available in the provided activity\_labels.txt file.
 These names are read into `activity_labels`, and the leading numerical
@@ -39,15 +39,15 @@ activity names.
 *subject IDs* respectively, are appended to the main dataframe
 `datamerge`
 
-4 Appropriate label the data set with descriptive variable names
-================================================================
+4: Appropriate label the data set with descriptive variable names
+=================================================================
 
 `keepfeatures` is used to get the variable names from the provided
 *features.txt* file. These are then used to modify the names of
 `datamerge` using a call to `colnames(datamerge)`
 
-5 Create a tidy data set with the average of each variable for each activity and each subject.
-==============================================================================================
+5: Create a tidy data set with the average of each variable for each activity and each subject.
+===============================================================================================
 
 The function checks to see if the user has the `dplyr` package
 installed, and installs it if not. `group_by` from the `dplyr` package
