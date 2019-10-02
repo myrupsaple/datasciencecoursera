@@ -46,11 +46,8 @@ activity names.
 *features.txt* file. These are then used to modify the names of
 `datamerge` using a call to `colnames(datamerge)`
 
-5. Create a tidy data set with the average of each variable for each activity
-=============================================================================
-
-and each subject.
-=================
+5. Create a tidy data set with the average of each variable for each activity and each subject.
+===============================================================================================
 
 The function checks to see if the user has the `dplyr` package
 installed, and installs it if not. `group_by` from the `dplyr` package
